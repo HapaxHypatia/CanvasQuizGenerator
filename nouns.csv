@@ -1,0 +1,100 @@
+﻿french,english,gender,number,category,countable,verb_associations,tags
+basket,basketball,m,,sport,,"jouer, aimer","team, outdoor"
+foot,soccer,m,,sport,,"jouer, aimer","team, outdoor"
+volley,volleyball,m,,sport,,"jouer, aimer","team, outdoor"
+sport,sport,m,,sport,,"jouer, aimer","team, outdoor"
+tennis,tennis,m,,sport,,"jouer, aimer",
+cricket,cricket,m,,sport,,"jouer, aimer","team, outdoor"
+cartes,cards,f,p,sport,,"jouer, aimer",indoor
+jeux vidéos,video games,m,p,sport,,"jouer, aimer","indoor, digital"
+boxe,boxing,f,,activity,,"faire, aimer","indoor, individual"
+natation,swimming,f,,activity,,"faire, aimer",individual
+jogging,jogging,m,,activity,,"faire, aimer","individual, outdoor"
+roller,roller skating,m,,activity,,"faire, aimer",indoor
+VTT,mountain biking,m,,activity,,"faire, aimer","outdoor, individual"
+shopping,shopping,m,,activity,,"faire, aimer",
+judo,judo,m,,activity,,"faire, aimer","indoor, individual"
+gymnastique,gymnastics,f,,activity,,"faire, aimer","indoor, individual"
+clarinette,clarinet,f,,instrument,,"jouer, aimer",
+piano,piano,m,,instrument,,"jouer, aimer",
+guitare,guitar,f,,instrument,,"jouer, aimer",
+piscine,pool,f,,place,,aller,
+centre de loisirs,leisure centre,m,,place,,aller,
+stade,stadium,m,,place,,aller,
+bibliothèque,library,f,,place,,aller,
+parc,park,m,,place,,aller,
+collège,middle-school,m,,place,,aller,
+maison,house,f,,place,,aller,
+eau,water,f,,drink,n,"boire, prendre, aimer",
+café,coffee,m,,drink,,"boire, prendre, aimer",
+vin,wine,m,,drink,,"boire, prendre, aimer",
+lait,milk,m,,drink,n,"boire, prendre, aimer",
+bière,beer,f,,drink,,"boire, prendre, aimer",
+thé,tea,m,,drink,,"boire, prendre, aimer",
+jus,juice,m,,drink,,"boire, prendre, aimer",
+coca,coke,m,,drink,,"boire, prendre, aimer",
+limonade,lemonade,f,,drink,,"boire, prendre, aimer",
+chocolat chaud,hot chocolate,m,,drink,,"boire, prendre, aimer",
+orangina,orangina,m,,drink,,"boire, prendre, aimer",
+pain,,m,s,food,n,"manger, prendre, aimer",
+glace,,f,s,food,,"manger, prendre, aimer",dish
+poisson,,m,s,food,,"manger, prendre, aimer",
+pomme,,f,s,food,,"manger, prendre, aimer",
+oeuf,,m,s,food,,"manger, prendre, aimer",
+gâteau,,m,s,food,,"manger, prendre, aimer",dish
+poulet,,m,s,food,,"manger, prendre, aimer",
+chocolat,,m,s,food,,"manger, prendre, aimer",
+sucre,,m,s,food,n,"manger, prendre, aimer",ingredient
+porc,,m,s,food,,"manger, prendre, aimer",
+sel,,m,s,food,n,"manger, prendre, aimer",ingredient
+pêche,,f,s,food,,"manger, prendre, aimer",
+fromage,,m,s,food,n,"manger, prendre, aimer",
+chou,,m,s,food,,"manger, prendre, aimer",
+salade,,f,s,food,,"manger, prendre, aimer",dish
+beurre,,m,s,food,n,"manger, prendre, aimer",
+bonbon,,m,p,food,,"manger, prendre, aimer",
+riz,,m,s,food,n,"manger, prendre, aimer",
+orange,,f,s,food,,"manger, prendre, aimer",
+oignon,,m,s,food,,"manger, prendre, aimer",
+tomate,,f,s,food,,"manger, prendre, aimer",
+boeuf,,m,s,food,,"manger, prendre, aimer",
+pizza,,f,s,food,,"manger, prendre, aimer",
+agneau,,m,s,food,,"manger, prendre, aimer",
+saucisse,,f,s,food,,"manger, prendre, aimer",
+champignon,,m,s,food,,"manger, prendre, aimer",
+confiture,,f,s,food,n,"manger, prendre, aimer",
+jambon,,m,s,food,n,"manger, prendre, aimer",
+poire,,f,s,food,,"manger, prendre, aimer",
+croissant,,m,s,food,,"manger, prendre, aimer",dish
+haricot,,m,p,food,,"manger, prendre, aimer",
+fraise,,f,s,food,,"manger, prendre, aimer",
+pois,,m,p,food,,"manger, prendre, aimer",
+farine,,f,s,food,n,"manger, prendre, aimer",ingredient
+toast,,m,p,food,,"manger, prendre, aimer",dish
+tartine,,f,p,food,,"manger, prendre, aimer",dish
+raisin,,m,p,food,,"manger, prendre, aimer",
+banane,,f,s,food,,"manger, prendre, aimer",
+crêpe,,f,s,food,,"manger, prendre, aimer",dish
+carotte,,f,s,food,,"manger, prendre, aimer",
+frite,,f,p,food,,"manger, prendre, aimer",dish
+melon,,m,s,food,,"manger, prendre, aimer",
+crevette,,f,s,food,,"manger, prendre, aimer",
+omelette,,f,s,food,,"manger, prendre, aimer",dish
+saumon,,m,s,food,,"manger, prendre, aimer",
+saucisson,,m,s,food,,"manger, prendre, aimer",
+sandwich,,m,s,food,,"manger, prendre, aimer",dish
+potage,,f,s,food,,"manger, prendre, aimer",
+yaourt,,m,s,food,,"manger, prendre, aimer",
+chips,,m,p,food,,"manger, prendre, aimer",dish
+framboise,,f,s,food,,"manger, prendre, aimer",
+concombre,,m,s,food,,"manger, prendre, aimer",
+hot-dog,,m,s,food,,"manger, prendre, aimer",dish
+céréale,,f,p,food,n,"manger, prendre, aimer",
+caramel,,m,s,food,n,"manger, prendre, aimer",flavour
+vanille,,f,s,food,n,"manger, prendre, aimer",flavour
+ananas,,m,s,food,,"manger, prendre, aimer",
+bacon,,m,s,food,n,"manger, prendre, aimer",
+chou-fleur,,m,s,food,,"manger, prendre, aimer",
+brocoli,,m,p,food,,"manger, prendre, aimer",
+croque-monsieur,,m,s,food,,"manger, prendre, aimer",dish
+pomme de terre,,f,s,food,,"manger, prendre, aimer",
