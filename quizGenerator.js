@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import IndicatorQuestions from "././questiondata/IndicatorQuestions.json" with { type: "json" };
 dotenv.config();
 
 // Node 18+ has global fetch + crypto.randomUUID()
@@ -112,10 +113,21 @@ async function createItem(quizId, payload) {
 // MULTIPLE CHOICE
 // -----------------------------------------------------
 
-function buildMC() {
-  const correctId = crypto.randomUUID();
-  const wrongId = crypto.randomUUID();
-
+function buildMC(question, answers) {
+  const choices = []
+  console.log(answers.length)
+  for (let i = 0; i < answers.length; i++) {
+    console.log(i)
+    console.log(answers[i])
+    choices.push(
+        {
+          id: "Question "+i,
+          position: i,
+          item_body: answers[i]
+        }
+    );
+  }
+  console.log(choices);
   return {
     item: {
       entry_type: "Item",
@@ -124,29 +136,18 @@ function buildMC() {
       entry: {
         title: "Sample MC",
 
-        item_body: "<p>What is the correct answer?</p>",
+        item_body: question,
 
         interaction_type_slug: QUESTION_TYPES.MC,
 
         interaction_data: {
-          choices: [
-            {
-              id: correctId,
-              position: 1,
-              item_body: "<p>Correct Answer</p>"
-            },
-            {
-              id: wrongId,
-              position: 2,
-              item_body: "<p>Wrong Answer</p>"
-            }
-          ]
+          choices: choices
         },
 
         properties: {
           shuffle_rules: {
             choices: {
-              shuffled: false,
+              shuffled: true,
               to_lock: []
             }
           },
@@ -154,7 +155,7 @@ function buildMC() {
         },
 
         scoring_data: {
-          value: correctId
+          value: choices[0].id
         },
 
         scoring_algorithm: SCORING.EQUIVALENCE
@@ -317,18 +318,22 @@ async function run() {
     // CREATE QUIZ
     // ---------------------------------
 
-    const quizId = await createQuiz();
+    const quizId = await createQuiz("Indicators Revision Quiz 1");
 
     // ---------------------------------
     // BUILD ITEMS
     // ---------------------------------
+    const questiondata = IndicatorQuestions
 
-    const items = [
-      buildEssay(),
-      buildMC(),
-      buildTF(),
-      buildFITB()
-    ];
+    const items = []
+    for (const q in questiondata){
+      const data = questiondata[q]
+      const answerchoices = [data.CorrectAnswer, data.Distractor1, data.Distractor2, data.Distractor3]
+      console.log(answerchoices)
+      items.push(
+        buildMC(data.Question, answerchoices)
+      );
+    }
 
     // ---------------------------------
     // UPLOAD ITEMS
