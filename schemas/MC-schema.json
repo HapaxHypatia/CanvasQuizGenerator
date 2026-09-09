@@ -1,0 +1,62 @@
+  {
+    "id": "819753",
+    "position": 2,
+    "points_possible": 1,
+    "properties": {
+      "required": false
+    },
+    "entry_type": "Item",
+    "entry_editable": true,
+    "stimulus_quiz_entry_id": "",
+    "status": "mutable",
+
+    "entry": {
+      "id": "824793",
+      "title": null,
+      "item_body": "<p>MC</p>",
+      "calculator_type": "none",
+      "interaction_data": {
+        "choices": [
+          {
+            "id": "7f4d87fa-7dd8-4dae-a379-08e68b9bb38a",
+            "position": 1,
+            "item_body": "<p>dhf</p>"
+          },
+          {
+            "id": "112d1867-7728-4b23-a1ff-ef1908849b28",
+            "position": 2,
+            "item_body": "<p>dhdh</p>"
+          },
+          {
+            "id": "f47eaf90-bff1-4aa5-bba1-e2f40e7c4394",
+            "position": 3,
+            "item_body": "<p>dfhd</p>"
+          },
+          {
+            "id": "cbcbd2f0-7410-4b14-a241-f5ee8215200b",
+            "position": 4,
+            "item_body": "<p>dfd</p>"
+          }
+        ]
+      },
+      "properties": {
+        "shuffle_rules": {
+          "choices": {
+            "to_lock": [],
+            "shuffled": false
+          }
+        },
+        "vary_points_by_answer": false
+      },
+      "scoring_data": {
+        "value": "7f4d87fa-7dd8-4dae-a379-08e68b9bb38a"
+      },
+      "answer_feedback": {},
+      "scoring_algorithm": "Equivalence",
+      "created_at": "2026-05-23T11:43:50.384Z",
+      "updated_at": "2026-05-23T11:43:50.384Z",
+      "tag_associations": [],
+      "interaction_type_slug": "choice",
+      "feedback": {}
+    }
+  },

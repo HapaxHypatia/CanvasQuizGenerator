@@ -1,0 +1,45 @@
+    {
+    "points_possible": 1,
+    "properties": {
+      "required": false
+    },
+    "entry_type": "Item",
+    "entry_editable": true,
+    "stimulus_quiz_entry_id": "",
+    "status": "mutable",
+
+    "entry": {
+      "title": null,
+      "item_body": questionStem
+      "interaction_data": {
+            "blanks": [
+                {
+                  "id": blankID,
+                  "answer_type": "openEntry"
+                }
+            ]
+      },
+      "properties": {
+        "shuffle_rules": {
+        }
+      },
+      "scoring_data": {
+          "value": [
+              {
+              "id": blankID,
+              "scoring_data": {
+                  "value": correct answer,
+                  "blank_text": correct answer
+              },
+              "scoring_algorithm": "TextContainsAnswer"
+              }
+          ],
+          "working_item_body": question stem
+
+      },
+      "answer_feedback": {},
+      "scoring_algorithm": scoringAlgorithm,
+      "interaction_type_slug": interactionSlug,
+      "feedback": {}
+    }
+  }

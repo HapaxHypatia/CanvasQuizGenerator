@@ -1,0 +1,53 @@
+  {
+    "id": "881888",
+    "position": 3,
+    "points_possible": 1,
+    "properties": {
+      "required": false
+    },
+    "entry_type": "Item",
+    "entry_editable": true,
+    "stimulus_quiz_entry_id": "",
+    "status": "mutable",
+    "entry": {
+      "id": "884381",
+      "title": "Sample MA Question",
+      "item_body": "<p>What is the answer</p>",
+      "calculator_type": "none",
+      "interaction_data": {
+        "choices": [
+          {
+            "id": "27ea0c01-8742-4bba-9df3-b4fabeafe083",
+            "position": 1,
+            "item_body": "<p>This is a possible answer.</p>"
+          },
+          {
+            "id": "357f37ae-4dac-449d-9ac8-d571af28529a",
+            "position": 2,
+            "item_body": "<p>This is another possible answer.</p>"
+          }
+        ]
+      },
+      "properties": {
+        "shuffle_rules": {
+          "choices": {
+            "to_lock": [],
+            "shuffled": false
+          }
+        }
+      },
+      "scoring_data": {
+        "value": [
+          "27ea0c01-8742-4bba-9df3-b4fabeafe083",
+          "357f37ae-4dac-449d-9ac8-d571af28529a"
+        ]
+      },
+      "answer_feedback": {},
+      "scoring_algorithm": "AllOrNothing",
+      "created_at": "2026-09-09T03:30:14.160Z",
+      "updated_at": "2026-09-09T03:30:14.160Z",
+      "tag_associations": [],
+      "interaction_type_slug": "multi-answer",
+      "feedback": {}
+    }
+  }

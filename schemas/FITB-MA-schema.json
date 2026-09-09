@@ -1,0 +1,60 @@
+ {
+    "id": "881921",
+    "position": 3,
+    "points_possible": 1,
+    "properties": {
+      "required": false
+    },
+    "entry_type": "Item",
+    "entry_editable": true,
+    "stimulus_quiz_entry_id": "",
+    "status": "mutable",
+    "entry": {
+      "id": "884414",
+      "title": null,
+      "item_body": "<p>the (singular in front of vowel or h):</p>\n<p><span id=\"blank_ad81eab6-257f-4f8f-97ab-c826dbb63d7e\"></span></p>",
+      "calculator_type": "none",
+      "interaction_data": {
+        "blanks": [
+          {
+            "id": "ad81eab6-257f-4f8f-97ab-c826dbb63d7e",
+            "answer_type": "openEntry"
+          }
+        ]
+      },
+      "properties": {
+        "shuffle_rules": {
+          "blanks": {
+            "children": {
+              "0": {
+                "children": null
+              }
+            }
+          }
+        }
+      },
+      "scoring_data": {
+        "value": [
+          {
+            "id": "ad81eab6-257f-4f8f-97ab-c826dbb63d7e",
+            "scoring_data": {
+              "value": [
+                "l'",
+                "l"
+              ],
+              "blank_text": "l'"
+            },
+            "scoring_algorithm": "TextInChoices"
+          }
+        ],
+        "working_item_body": "<p>the (singular in front of vowel or h):</p>\n<p>`l'`</p>"
+      },
+      "answer_feedback": {},
+      "scoring_algorithm": "MultipleMethods",
+      "created_at": "2026-09-09T04:14:19.145Z",
+      "updated_at": "2026-09-09T04:14:19.145Z",
+      "tag_associations": [],
+      "interaction_type_slug": "rich-fill-blank",
+      "feedback": {}
+    }
+  },

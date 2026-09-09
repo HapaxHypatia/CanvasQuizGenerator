@@ -11,6 +11,6 @@ def csv2json(inputfile, outputfile):
 
 
 if __name__ == '__main__':
-    inpath = "input/IndicatorQuestions.csv"
+    inpath = "input/csv/IndicatorQuestions.csv"
     outpath = "questiondata/IndicatorQuestions.json"
     csv2json(inpath, outpath)

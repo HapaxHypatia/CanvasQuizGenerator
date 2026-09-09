@@ -1,5 +1,9 @@
 import dotenv from "dotenv";
 import IndicatorQuestions from "././questiondata/IndicatorQuestions.json" with { type: "json" };
+import RevisionQuestions from "././questiondata/Revision Questions.json" with { type: "json" };
+
+// TODO Replace sample ids and names with dynamic ones
+
 dotenv.config();
 
 // Node 18+ has global fetch + crypto.randomUUID()
@@ -9,25 +13,8 @@ dotenv.config();
 
 const BASE_URL = process.env.CANVAS_BASE_URL;
 const TOKEN = process.env.CANVAS_TOKEN;
-const COURSE_ID = process.env.COURSE_ID;
+const COURSE_IDS =  JSON.parse(process.env.COURSE_IDS);
 
-// =====================================================
-// CONSTANTS
-// =====================================================
-
-const QUESTION_TYPES = {
-  MC: "choice",
-  ESSAY: "essay",
-  TF: "true-false",
-  FITB: "rich-fill-blank"
-};
-
-const SCORING = {
-  EQUIVALENCE: "Equivalence",
-  NONE: "None",
-  MULTIPLE_METHODS: "MultipleMethods",
-  TEXT_CONTAINS: "TextContainsAnswer"
-};
 
 // =====================================================
 // HTTP
@@ -71,7 +58,7 @@ async function canvasRequest(path, method = "GET", body = null) {
 // QUIZ
 // =====================================================
 
-async function createQuiz(title = "Sample Generated Quiz") {
+async function createQuiz(title = "Sample Generated Quiz", course) {
   const payload = {
     quiz: {
       title
@@ -79,7 +66,7 @@ async function createQuiz(title = "Sample Generated Quiz") {
   };
 
   const quiz = await canvasRequest(
-    `/api/quiz/v1/courses/${COURSE_ID}/quizzes`,
+    `/api/quiz/v1/courses/${course}/quizzes`,
     "POST",
     payload
   );
@@ -93,9 +80,9 @@ async function createQuiz(title = "Sample Generated Quiz") {
 // ITEM CREATION
 // =====================================================
 
-async function createItem(quizId, payload) {
+async function createItem(course, quizId, payload) {
   const item = await canvasRequest(
-    `/api/quiz/v1/courses/${COURSE_ID}/quizzes/${quizId}/items`,
+    `/api/quiz/v1/courses/${course}/quizzes/${quizId}/items`,
     "POST",
     payload
   );
@@ -105,9 +92,6 @@ async function createItem(quizId, payload) {
   return item;
 }
 
-// =====================================================
-// QUESTION BUILDERS
-// =====================================================
 
 // -----------------------------------------------------
 // MULTIPLE CHOICE
@@ -115,10 +99,10 @@ async function createItem(quizId, payload) {
 
 function buildMC(question, answers) {
   const choices = []
-  console.log(answers.length)
+  // console.log(answers.length)
   for (let i = 0; i < answers.length; i++) {
-    console.log(i)
-    console.log(answers[i])
+    // console.log(i)
+    // console.log(answers[i])
     choices.push(
         {
           id: "Question "+i,
@@ -127,7 +111,7 @@ function buildMC(question, answers) {
         }
     );
   }
-  console.log(choices);
+  // console.log(choices);
   return {
     item: {
       entry_type: "Item",
@@ -136,11 +120,10 @@ function buildMC(question, answers) {
       entry: {
         title: "Sample MC",
 
+        // Question stem
         item_body: question,
-
-        interaction_type_slug: QUESTION_TYPES.MC,
-
         interaction_data: {
+          // Answer & Distractors
           choices: choices
         },
 
@@ -155,99 +138,16 @@ function buildMC(question, answers) {
         },
 
         scoring_data: {
+          // ID of correct answer
           value: choices[0].id
         },
 
-        scoring_algorithm: SCORING.EQUIVALENCE
+        scoring_algorithm: "Equivalence"
       }
     }
   };
 }
 
-// -----------------------------------------------------
-// ESSAY
-// -----------------------------------------------------
-
-function buildEssay() {
-  return {
-    item: {
-      entry_type: "Item",
-      points_possible: 1,
-
-      entry: {
-        title: "Sample Essay",
-
-        item_body: "<p>Write a response.</p>",
-
-        interaction_type_slug: QUESTION_TYPES.ESSAY,
-
-        interaction_data: {
-          rce: true,
-          essay: null,
-          word_count: false,
-          file_upload: false,
-          spell_check: false,
-          word_limit_enabled: false,
-          word_limit_max: null,
-          word_limit_min: null
-        },
-
-        properties: {
-          word_limit: false,
-          spell_check: false,
-          word_limit_max: 0,
-          word_limit_min: 0,
-          show_word_count: false,
-          rich_content_editor: false
-        },
-
-        scoring_data: {
-          value: ""
-        },
-
-        scoring_algorithm: SCORING.NONE
-      }
-    }
-  };
-}
-
-// -----------------------------------------------------
-// TRUE/FALSE
-// -----------------------------------------------------
-
-function buildTF() {
-  return {
-    item: {
-      entry_type: "Item",
-      points_possible: 1,
-
-      entry: {
-        title: "Sample True False",
-
-        item_body: "<p>The sky is blue.</p>",
-
-        interaction_type_slug: QUESTION_TYPES.TF,
-
-        interaction_data: {
-          true_choice: "True",
-          false_choice: "False"
-        },
-
-        properties: {},
-
-        scoring_data: {
-          value: true
-        },
-
-        scoring_algorithm: SCORING.EQUIVALENCE
-      }
-    }
-  };
-}
-
-// -----------------------------------------------------
-// RICH FILL IN THE BLANK
-// -----------------------------------------------------
 
 function buildFITB() {
   const blankId = crypto.randomUUID();
@@ -256,14 +156,10 @@ function buildFITB() {
     item: {
       entry_type: "Item",
       points_possible: 1,
-
       entry: {
-        title: "Sample Fill Blank",
-
+        title: null,
+        // Question stem
         item_body: "<p>Fill in the `blank`.</p>",
-
-        interaction_type_slug: QUESTION_TYPES.FITB,
-
         interaction_data: {
           blanks: [
             {
@@ -276,31 +172,22 @@ function buildFITB() {
         properties: {
           shuffle_rules: {
             blanks: {
-              children: {
-                "0": {
-                  children: null
-                }
-              }
             }
           }
         },
-
-        scoring_algorithm: SCORING.MULTIPLE_METHODS,
-
         scoring_data: {
           value: [
             {
               id: blankId,
-
               scoring_data: {
+                // Answer
                 value: "blank",
                 blank_text: "blank"
               },
-
-              scoring_algorithm: SCORING.TEXT_CONTAINS
+              scoring_algorithm: "TextContainsAnswer"
             }
           ],
-
+          // Question Stem
           working_item_body: "<p>Fill in the `blank`.</p>"
         }
       }
@@ -312,35 +199,50 @@ function buildFITB() {
 // MAIN
 // =====================================================
 
-async function run() {
+async function run(course, questionjson, title) {
   try {
     // ---------------------------------
     // CREATE QUIZ
     // ---------------------------------
 
-    const quizId = await createQuiz("Indicators Revision Quiz 1");
+    const quizId = await createQuiz(title, course);
 
     // ---------------------------------
     // BUILD ITEMS
     // ---------------------------------
-    const questiondata = IndicatorQuestions
-
+    const questiondata = questionjson
     const items = []
     for (const q in questiondata){
       const data = questiondata[q]
-      const answerchoices = [data.CorrectAnswer, data.Distractor1, data.Distractor2, data.Distractor3]
-      console.log(answerchoices)
-      items.push(
-        buildMC(data.Question, answerchoices)
-      );
+      // TODO Change this to switch
+      // TODO 4 answer fields: if MC, 1 correct, 3 distractors. If short answer: all correct options, ignore blanks.
+      switch (data.Type){
+        case "MC":
+            let MCchoices = [data.Answer1, data.Answer2, data.Answer3, data.Answer4]
+            // console.log(MCchoices)
+            items.push(
+              buildMC(data.Question, MCchoices)
+            );
+            break;
+        default:
+            break;
+      }
     }
+
+    // FITB:
+    // question stem
+    // blank text
+
+    // MC:
+    // question stem
+    // answer array
 
     // ---------------------------------
     // UPLOAD ITEMS
     // ---------------------------------
 
     for (const item of items) {
-      await createItem(quizId, item);
+      await createItem(course, quizId, item);
 
       // small delay to avoid Canvas weirdness
       await new Promise(resolve => setTimeout(resolve, 300));
@@ -354,4 +256,5 @@ async function run() {
   }
 }
 
-run();
+console.log(COURSE_IDS)
+run(COURSE_IDS.SANDBOX, RevisionQuestions, "Revision MC Quiz Test");
