@@ -214,20 +214,21 @@ async function run(course, questionjson, title) {
     const items = []
     for (const q in questiondata){
       const data = questiondata[q]
-      // TODO Change this to switch
-      // TODO 4 answer fields: if MC, 1 correct, 3 distractors. If short answer: all correct options, ignore blanks.
-      switch (data.Type){
+      const type = data.Type;
+      switch(type) {
         case "MC":
-            let MCchoices = [data.Answer1, data.Answer2, data.Answer3, data.Answer4]
+            const MCchoices = [data.Answer1, data.Answer2, data.Answer3, data.Answer4]
             // console.log(MCchoices)
-            items.push(
-              buildMC(data.Question, MCchoices)
-            );
+            items.push(buildMC(data.Question, MCchoices));
+            break;
+        case "FB":
             break;
         default:
             break;
       }
-    }
+
+      }
+
 
     // FITB:
     // question stem
